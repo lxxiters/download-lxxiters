@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Descargas - LX XITERS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --bg:#07070b;
+      --bg2:#101019;
+      --card:#13131c;
+      --gold:#FFD700;
+      --gold2:#ffbf00;
+      --gold3:#ff9800;
+      --text:#ffffff;
+      --muted:#b8b8c9;
+      --border:rgba(255,215,0,.14);
+      --shadow:0 18px 40px rgba(0,0,0,.45);
+      --blue:#00b7ff;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,215,0,.07), transparent 18%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg2) 55%, #09090d 100%);
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size:28px 28px;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      padding:15px 16px;
+      background:rgba(8,8,12,.78);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      backdrop-filter:blur(12px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Orbitron',sans-serif;
+      font-weight:900;
+      color:var(--gold);
+      border:2px solid rgba(255,215,0,.30);
+      background:linear-gradient(135deg,#11111a,#1b1b27);
+      box-shadow:0 0 20px rgba(255,215,0,.12);
+      flex-shrink:0;
+    }
+
+    .brand-text h1{
+      font-family:'Orbitron',sans-serif;
+      font-size:16px;
+      color:var(--gold);
+      letter-spacing:1px;
+      line-height:1.2;
+    }
+
+    .brand-text p{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+
+    .container{
+      width:min(1200px,92%);
+      margin:22px auto 34px;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero{
+      border:1px solid var(--border);
+      background:linear-gradient(135deg, rgba(255,215,0,.06), rgba(255,255,255,.025));
+      border-radius:24px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:58%;
+      height:100%;
+      background:linear-gradient(90deg, transparent, rgba(255,215,0,.10), transparent);
+      transform:skewX(-20deg);
+      animation:shine 6s linear infinite;
+    }
+
+    @keyframes shine{
+      100%{ left:160%; }
+    }
+
+    .hero h2{
+      position:relative;
+      z-index:1;
+      font-family:'Orbitron',sans-serif;
+      font-size:22px;
+      color:var(--gold);
+      margin-bottom:8px;
+    }
+
+    .hero p{
+      position:relative;
+      z-index:1;
+      font-size:13px;
+      line-height:1.7;
+      color:var(--muted);
+    }
+
+    .tools{
+      display:grid;
+      grid-template-columns:1fr 230px 110px;
+      gap:10px;
+      margin-top:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .input, .select{
+      width:100%;
+      height:40px;
+      border:none;
+      outline:none;
+      padding:0 13px;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:#fff;
+      font-size:13px;
+      transition:.25s ease;
+    }
+
+    .input::placeholder{
+      color:#9f9fb2;
+    }
+
+    .input:focus, .select:focus{
+      border-color:rgba(255,215,0,.35);
+      box-shadow:0 0 0 4px rgba(255,215,0,.05);
+    }
+
+    .btn-refresh{
+      height:40px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:12px;
+      color:#111;
+      background:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));
+      box-shadow:0 10px 22px rgba(255,215,0,.13);
+      transition:.25s ease;
+    }
+
+    .btn-refresh:hover{
+      transform:translateY(-2px);
+    }
+
+    .section-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:22px 0 14px;
+    }
+
+    .section-header h3{
+      font-family:'Orbitron',sans-serif;
+      color:var(--gold);
+      font-size:17px;
+    }
+
+    .section-header span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .downloads-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(285px,1fr));
+      gap:16px;
+    }
+
+    .file-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:var(--shadow);
+      transition:.28s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .file-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(255,215,0,.2);
+    }
+
+    .file-preview{
+      width:100%;
+      height:165px;
+      border-radius:16px;
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(255,215,0,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:14px;
+      position:relative;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .file-preview::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.40), transparent);
+      pointer-events:none;
+    }
+
+    .file-preview img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .file-icon-big{
+      font-size:48px;
+      color:var(--gold);
+      z-index:1;
+    }
+
+    .file-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:8px;
+    }
+
+    .file-name{
+      font-size:15px;
+      font-weight:700;
+      color:#fff;
+      line-height:1.4;
+      flex:1;
+    }
+
+    .badge{
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:700;
+      color:#111;
+      background:linear-gradient(135deg,var(--gold),#ffca2f);
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .file-category{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:11px;
+      color:var(--gold);
+      font-weight:600;
+      background:rgba(255,215,0,.08);
+      border:1px solid rgba(255,215,0,.12);
+      padding:6px 10px;
+      border-radius:12px;
+    }
+
+    .file-desc{
+      font-size:12.5px;
+      line-height:1.7;
+      color:var(--muted);
+      min-height:58px;
+      margin-bottom:14px;
+    }
+
+    .file-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:12px;
+    }
+
+    .meta-item{
+      font-size:11px;
+      color:#e2e2ec;
+      padding:7px 10px;
+      border-radius:10px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .links-box{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .link-download{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:11px 12px;
+      border-radius:12px;
+      font-size:12.5px;
+      font-weight:600;
+      text-decoration:none;
+      color:var(--blue);
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      transition:.2s ease;
+    }
+
+    .link-download:hover{
+      background:rgba(255,215,0,.07);
+      color:var(--gold);
+      border-color:rgba(255,215,0,.2);
+      transform:translateY(-1px);
+    }
+
+    .link-download .link-name{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .link-download .link-action{
+      color:#fff;
+      font-size:12px;
+      opacity:.95;
+      white-space:nowrap;
+    }
+
+    .actions{
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .btn{
+      flex:1;
+      min-width:110px;
+      height:40px;
+      border:none;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      font-weight:700;
+      font-size:13px;
+      transition:.25s ease;
+      cursor:pointer;
+    }
+
+    .btn-view{
+      color:#fff;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .btn-view:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.08);
+    }
+
+    .empty{
+      display:none;
+      margin-top:16px;
+      border-radius:22px;
+      padding:28px 16px;
+      text-align:center;
+      color:var(--muted);
+      border:1px dashed rgba(255,255,255,.12);
+      background:rgba(255,255,255,.02);
+      font-size:13px;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.78);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:9999;
+    }
+
+    .modal.show{
+      display:flex;
+    }
+
+    .modal-content{
+      width:min(720px,100%);
+      max-height:90vh;
+      overflow:auto;
+      border-radius:22px;
+      background:linear-gradient(180deg,#11111a,#181825);
+      border:1px solid rgba(255,215,0,.16);
+      box-shadow:0 20px 50px rgba(0,0,0,.55);
+      padding:18px;
+    }
+
+    .modal-image{
+      width:100%;
+      height:210px;
+      border-radius:16px;
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(255,215,0,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:16px;
+      position:relative;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .modal-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.35), transparent);
+      pointer-events:none;
+    }
+
+    .modal-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .modal-icon{
+      font-size:58px;
+      color:var(--gold);
+      z-index:1;
+    }
+
+    .modal-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:12px;
+    }
+
+    .modal-title{
+      font-family:'Orbitron',sans-serif;
+      color:var(--gold);
+      font-size:20px;
+      line-height:1.4;
+    }
+
+    .close-btn{
+      width:40px;
+      height:40px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:22px;
+      color:#111;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      flex-shrink:0;
+    }
+
+    .modal-category{
+      display:inline-block;
+      padding:7px 11px;
+      border-radius:12px;
+      font-size:11px;
+      color:var(--gold);
+      background:rgba(255,215,0,.08);
+      border:1px solid rgba(255,215,0,.15);
+      margin-bottom:12px;
+    }
+
+    .modal-description{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.9;
+      margin-bottom:14px;
+      white-space:pre-line;
+    }
+
+    .modal-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .modal-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom:14px;
+    }
+
+    .modal-actions{
+      display:flex;
+      gap:8px;
+    }
+
+    .btn-close{
+      color:#fff;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .btn-close:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.08);
+    }
+
+    @media (max-width:820px){
+      .tools{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:520px){
+      .topbar{
+        padding:14px;
+      }
+
+      .logo{
+        width:44px;
+        height:44px;
+      }
+
+      .brand-text h1{
+        font-size:15px;
+      }
+
+      .hero{
+        padding:18px;
+      }
+
+      .hero h2{
+        font-size:20px;
+      }
+
+      .file-preview{
+        height:150px;
+      }
+
+      .modal-image{
+        height:170px;
+      }
+
+      .modal-title{
+        font-size:17px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">LX</div>
+      <div class="brand-text">
+        <h1>LX XITERS</h1>
+        <p>Centro de descargas premium</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <h2>Zona de Descargas</h2>
+      <p>
+        Aquí puedes mostrar tus productos con descripción corta, descripción avanzada,
+        imagen personalizada, fondo personalizado y varios enlaces de descarga.
+      </p>
+
+      <div class="tools">
+        <input type="text" id="searchInput" class="input" placeholder="Buscar archivo..." />
+
+        <select id="categoryFilter" class="select">
+          <option value="todos">Todas las categorías</option>
+          <option value="EMULADOR PANEL">EMULADOR PANEL</option>
+          <option value="EMULADOR BYPASS">EMULADOR BYPASS</option>
+          <option value="REQUERIMIENTOS">REQUERIMIENTOS</option>
+          <option value="ANTIVIRUS">ANTIVIRUS</option>
+          <option value="LIMPIADOR DE EMULADORES">LIMPIADOR DE EMULADORES</option>
+          <option value="FREE FIRE">FREE FIRE</option>
+          <option value="FREE FIRE BYPASS">FREE FIRE BYPASS</option>
+          <option value="LOADER - LX XITERS">LOADER - LX XITERS</option>
+          <option value="LOADER - LX XITERS BYPASS">LOADER - LX XITERS BYPASS</option>
+        </select>
+
+        <button class="btn-refresh" onclick="renderFiles()">Actualizar</button>
+      </div>
+    </section>
+
+    <div class="section-header">
+      <h3>Archivos disponibles</h3>
+      <span id="fileCount">0 archivos</span>
+    </div>
+
+    <div class="downloads-grid" id="downloadsGrid"></div>
+    <div class="empty" id="emptyState">No se encontraron archivos.</div>
+  </div>
+
+  <div class="modal" id="detailsModal">
+    <div class="modal-content">
+      <div class="modal-image" id="modalImageBox"></div>
+
+      <div class="modal-top">
+        <div>
+          <div class="modal-title" id="modalTitle">Título</div>
+        </div>
+        <button class="close-btn" onclick="closeModal()">×</button>
+      </div>
+
+      <div class="modal-category" id="modalCategory">Categoría</div>
+
+      <div class="modal-description" id="modalDescription">Descripción completa</div>
+
+      <div class="modal-meta">
+        <div class="meta-item" id="modalSize">Tamaño: --</div>
+        <div class="meta-item" id="modalVersion">Versión: --</div>
+        <div class="meta-item" id="modalType">Tipo: --</div>
+      </div>
+
+      <div class="modal-links" id="modalLinks"></div>
+
+      <div class="modal-actions">
+        <button class="btn btn-close" onclick="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const files = [
+      {
+        name: "EMULADOR PANEL",
+        description: "Emulador Recomendado para el uso del panel basico y complex ,evitar usar otros emuladores no oficiales del panel.",
+        fullDescription: "EMULADORES RECOMIENDADOS PARA EL USO DEL PANEL BASICO Y COMPLEX,EVITAR USAR OTROS EMULADORES NO OFICIALES DEL PANEL YA QUE PUEDEN CORRER RIESGO DE BLACK Y NOSOTROS NO SEREMOS RESPONSABLES DE ESO",
+        size: "2 MB",
+        version: "v1.0",
+        category: "EMULADOR PANEL",
+        type: "EXE",
+        icon: "",
+        image: "https://i.imgur.com/PKsCGMc.jpeg",
+        background: "",
+        links: [
+          { name: " BLUESTACK 5", url: "https://drive.google.com/file/d/1zrpKTgQJyo4dee1jvF8mUp3y_Qm4Yzgn/view?usp=sharing" },
+          { name: " MSI APP PLAYER", url: "https://example.com/emulador2" },
+        ]
+      },
+      {
+        name: "EMULADOR BYPASS MEMU",
+        description: "Emulador Recomendado para el uso del Bypass ,,evitar usar otros emuladores no oficiales del Bypass.",
+        fullDescription: "EMULADOR RECOMIENDADO PARA EL USO DEL BYPASS ,EVITAR USAR OTROS EMULADORES NO OFICIALES DEL BYPASS YA QUE PUEDEN CORRER RIESGO DE BLACK Y NOSOTROS NO SEREMOS RESPONSABLES DE ESO.",
+        size: "150 MB",
+        version: "v2.0",
+        category: "EMULADOR BYPASS",
+        type: "EXE",
+        icon: "",
+        image: "https://i.imgur.com/hxXa7ly.jpeg",
+        background: "",
+        links: [
+          { name: "MEMU PLAYER", url: "https://www.mediafire.com/file/y6fe6g631w4vqpz/MEmuEmulator.exe/file" },
+        ]
+      },
+      {
+        name: "REQUERIMIENTOS C++",
+        description: "Requerimientos Obligatorios para el panel basic y complex,sin requerimientos puedes tener complicaciones al momento de instalar los exes.",
+        fullDescription: "ESTOS SON LOS REQUERIMIENTOS OBLIGATORIOS PARA EL USO DEL PANEL BASICO Y COMPLEX,SIN ESTO PUEDES TENER COMPLICACIONES AL INSTALAR LOS EXES Y TAMBIEN SIN ESTO NO TE PYEDE LLEGAR A ABRIR EL EXE.",
+        size: "89 MB",
+        version: "v1.3",
+        category: "REQUERIMIENTOS",
+        type: "RAR",
+        icon: "",
+        image: "https://i.imgur.com/JEVtiF4.jpeg",
+        background: "",
+        links: [
+          { name: "REQUERIMIENTOS C++", url: "https://example.com/requisitos1" },
+          
+        ]
+      },
+      {
+        name: "ANTIVIRUS",
+        description: "Antivirus fix para que puedas desabilitar el antivirus de manera permanente.",
+        fullDescription: "ANTIVIRUS FIX TE AYUDARÁ A DESACTIVAR EL ANTIVIRUS DE FORMA PERMANENTE,RECUERDA QUE SU TIENES TU ANTIVIRUS ACTIVO LOS PANELES COMPLEX,BASICO,BYPASS SE CERRARAN SOLOS ESO ES PROBLEMA DEL ANTIVIRUS, - COMO INSTALAR SOLO DESCARGAS,LO EXTRAES CON RAR Y SE CREARA UNA CARPETA LUEGO ENTRAS A LA CARPETA QUR SE CREO CON EL NOMBRE DE ANTIVIRUS FIX LUEGO AL ENTRSR TE SALDRAN VARIOS ARCHIVOS ABRES EL QUE SALE COMO CONTROL SALE EN MODO APLICACIÓN.",
+        size: "3 MB",
+        version: "v5.0",
+        category: "ANTIVIRUS",
+        type: "RAR",
+        icon: "",
+        image: "https://i.imgur.com/pDk77yH.png",
+        background: "",
+        links: [
+          { name: "ANTIVIRUS FIX", url: "https://www.mediafire.com/file/wusmh2ax7lfv91a/Antivirus_Fix.zip/file" },
+        ]
+      },
+      {
+        name: "LIMPIADOR DE EMULADORES",
+        description: "Elimina todos los emuladores que tengas.",
+        fullDescription: "ELIMINA TODOS TUS EMULADORES QUE TENGAS YA SEA BLUESTACK,MSI SOLO NECESITAS EJECUTARLO Y YA SE VA BORRANDO AUTOMÁTICAMENTE.",
+        size: "2 MB",
+        version: "v2.5",
+        category: "LIMPIADOR DE EMULADORES",
+        type: "EXE",
+        icon: "",
+        image: "https://i.imgur.com/9t8pQie.jpeg",
+        background: "",
+        links: [
+          { name: "BS CLEANER", url: "https://example.com/cleaner1" },
+        ]
+      },
+      {
+        name: "FREE FIRE RECOMENDADO",
+        description: "estos seran los free fire recomendads ya que son FREE FIRE INDIA,FREE FIRE NORMAL,FREE FIRE TELA, por favor ocupar estos ff obligatoriamente ya que si no usan este tienes el riesgo de caer a black list.",
+        fullDescription: "ESTOS SERAN LOS FF RECOMENDADOS PARA EL USO DE LOS PANELES ESTO FF SE USARAN OBLIGATORIAMENTE PA NO CAER A BLACK SI USAS OTRO YA ES BAJO TU RESPONSABILIDAD",
+        size: "500 MB",
+        version: "v2.0",
+        category: "FREE FIRE",
+        type: "APK",
+        icon: "",
+        image: "https://i.imgur.com/Zp3CYFY.png",
+        background: "",
+        links: [
+          { name: "FREE FIRE NORMAL", url: "https://example.com/freefire1" },
+          { name: "FREE FIRE TELA", url: "https://example.com/freefire2" },
+          { name: "FREE FIRE INDIA", url: "https://example.com/freefire3" }
+        ]
+      },
+      {
+        name: "FREE FIRE BYPASS",
+        description: "Free fire recomendado para el bypass de memu evitar usar el de la play store.",
+        fullDescription: "ESTE SERÁ EL FREE FIRE RECOMENDADO PARA EL BYPASS ,EVITA USAR EL FREE FIRE DE LA PLAY STORE PARA NO TENER PROBLEMAS",
+        size: "400 MB",
+        version: "v3.1",
+        category: "FREE FIRE BYPASS",
+        type: "APK",
+        icon: "",
+        image: "https://i.imgur.com/zWxO5nG.jpeg",
+        background: "",
+        links: [
+          { name: "FREE FIRE NORMAL", url: "https://example.com/ffbypass1" },
+        ]
+      },
+      {
+        name: "LOADER LX XITERS",
+        description: "Loader principal con acceso a funciones premium.",
+        fullDescription: "Descripción avanzada del loader principal.",
+        size: "70 MB",
+        version: "v4.0",
+        category: "LOADER - LX XITERS",
+        type: "APP",
+        icon: "👑",
+        image: "",
+        background: "",
+        links: [
+          { name: "DESCARGAR AQUÍ", url: "https://example.com/loader1" },
+          { name: "MEDIAFIRE", url: "https://example.com/loader2" },
+          { name: "OTRO LINK", url: "https://example.com/loader3" }
+        ]
+      },
+      {
+        name: "LOADER LX XITERS BYPASS",
+        description: "Versión bypass del loader.",
+        fullDescription: "Descripción avanzada del loader bypass.",
+        size: "80 MB",
+        version: "v4.2",
+        category: "LOADER - LX XITERS BYPASS",
+        type: "APP",
+        icon: "🚀",
+        image: "",
+        background: "",
+        links: [
+          { name: "DESCARGA 1", url: "https://example.com/loaderb1" },
+          { name: "MEDIAFIRE", url: "https://example.com/loaderb2" },
+          { name: "DRIVE", url: "https://example.com/loaderb3" }
+        ]
+      }
+    ];
+
+    const grid = document.getElementById("downloadsGrid");
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const emptyState = document.getElementById("emptyState");
+    const fileCount = document.getElementById("fileCount");
+
+    const detailsModal = document.getElementById("detailsModal");
+    const modalImageBox = document.getElementById("modalImageBox");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalSize = document.getElementById("modalSize");
+    const modalVersion = document.getElementById("modalVersion");
+    const modalType = document.getElementById("modalType");
+    const modalLinks = document.getElementById("modalLinks");
+
+    function buildPreview(file) {
+      const hasBackground = file.background && file.background.trim() !== "";
+      const hasImage = file.image && file.image.trim() !== "";
+
+      if (hasBackground) {
+        return `
+          <div style="
+            position:absolute;
+            inset:0;
+            background:
+              linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.45)),
+              url('${file.background}') center/cover no-repeat;
+          "></div>
+        ` + (
+          hasImage
+          ? `<img src="${file.image}" alt="${file.name}" style="position:relative;z-index:1;" onerror="this.remove()">`
+          : `<div class="file-icon-big">${file.icon || "📁"}</div>`
+        );
+      }
+
+      if (hasImage) {
+        return `<img src="${file.image}" alt="${file.name}" onerror="this.parentElement.innerHTML='<div class=\\'file-icon-big\\'>${file.icon || "📁"}</div>';">`;
+      }
+
+      return `<div class="file-icon-big">${file.icon || "📁"}</div>`;
+    }
+
+    function buildLinksHTML(links) {
+      if (!links || !links.length) {
+        return `
+          <div class="link-download" style="pointer-events:none;opacity:.7;">
+            <span class="link-name">Sin enlaces</span>
+            <span class="link-action">---</span>
+          </div>
+        `;
+      }
+
+      return links.map(link => `
+        <a href="${link.url}" target="_blank" class="link-download">
+          <span class="link-name">📦 ${link.name}</span>
+          <span class="link-action">Descargar aquí</span>
+        </a>
+      `).join("");
+    }
+
+    function renderFiles() {
+      const search = searchInput.value.toLowerCase().trim();
+      const category = categoryFilter.value;
+
+      const filtered = files.filter(file => {
+        const matchText =
+          (file.name || "").toLowerCase().includes(search) ||
+          (file.description || "").toLowerCase().includes(search) ||
+          (file.fullDescription || "").toLowerCase().includes(search) ||
+          (file.category || "").toLowerCase().includes(search) ||
+          (file.type || "").toLowerCase().includes(search);
+
+        const matchCategory = category === "todos" || file.category === category;
+        return matchText && matchCategory;
+      });
+
+      grid.innerHTML = "";
+      fileCount.textContent = `${filtered.length} archivo${filtered.length !== 1 ? "s" : ""}`;
+
+      if (filtered.length === 0) {
+        emptyState.style.display = "block";
+        return;
+      }
+
+      emptyState.style.display = "none";
+
+      filtered.forEach(file => {
+        const realIndex = files.indexOf(file);
+        const card = document.createElement("div");
+        card.className = "file-card";
+
+        card.innerHTML = `
+          <div class="file-preview">
+            ${buildPreview(file)}
+          </div>
+
+          <div class="file-top">
+            <div class="file-name">${file.name || "Sin nombre"}</div>
+            <div class="badge">${file.type || "FILE"}</div>
+          </div>
+
+          <div class="file-category">${file.category || "Sin categoría"}</div>
+          <div class="file-desc">${file.description || "Sin descripción."}</div>
+
+          <div class="file-meta">
+            <div class="meta-item">Tamaño: ${file.size || "--"}</div>
+            <div class="meta-item">Versión: ${file.version || "--"}</div>
+          </div>
+
+          <div class="links-box">
+            ${buildLinksHTML(file.links)}
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-view" onclick="openModal(${realIndex})">Ver más</button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function openModal(index) {
+      const file = files[index];
+      if (!file) return;
+
+      const hasBackground = file.background && file.background.trim() !== "";
+      const hasImage = file.image && file.image.trim() !== "";
+
+      if (hasBackground) {
+        modalImageBox.style.background = `
+          linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.45)),
+          url('${file.background}') center/cover no-repeat
+        `;
+      } else {
+        modalImageBox.style.background = "linear-gradient(135deg, rgba(255,215,0,.08), rgba(255,255,255,.03))";
+      }
+
+      if (hasImage) {
+        modalImageBox.innerHTML = `<img src="${file.image}" alt="${file.name}" onerror="this.parentElement.innerHTML='<div class=\\'modal-icon\\'>${file.icon || "📁"}</div>';">`;
+      } else {
+        modalImageBox.innerHTML = `<div class="modal-icon">${file.icon || "📁"}</div>`;
+      }
+
+      modalTitle.textContent = file.name || "Sin nombre";
+      modalCategory.textContent = file.category || "Sin categoría";
+      modalDescription.textContent = file.fullDescription || file.description || "Sin descripción.";
+      modalSize.textContent = "Tamaño: " + (file.size || "--");
+      modalVersion.textContent = "Versión: " + (file.version || "--");
+      modalType.textContent = "Tipo: " + (file.type || "--");
+      modalLinks.innerHTML = buildLinksHTML(file.links);
+
+      detailsModal.classList.add("show");
+    }
+
+    function closeModal() {
+      detailsModal.classList.remove("show");
+    }
+
+    detailsModal.addEventListener("click", function(e) {
+      if (e.target === detailsModal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    searchInput.addEventListener("input", renderFiles);
+    categoryFilter.addEventListener("change", renderFiles);
+
+    renderFiles();
+  </script>
+</body>
+</html>
